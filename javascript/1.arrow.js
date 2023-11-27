@@ -19,9 +19,6 @@ arrMessage = () => {
                         console.log("오늘날짜:", today);
                     }
 
-
-
-
 // function hello(msg){
 //     return "msg, Hello: " + msg;
 // }
