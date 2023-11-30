@@ -14,7 +14,7 @@
         }
     }
 </script>
-<style>
+<style scoped> /*scoped하면 여기만 적용됨!*/
 p {
     background-color: burlywood;
 }
