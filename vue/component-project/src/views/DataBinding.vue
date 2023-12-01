@@ -23,7 +23,16 @@
             <input type="checkbox" value="대구" v-model="city">대구
             <p> {{ city }} </p>
          </div>
-
+         <div>
+            <input type="radio" value="독서" v-model="hobby">독서
+            <input type="radio" value="영화" v-model="hobby">영화
+            <input type="radio" value="운동" v-model="hobby">운동
+            <p>{{ hobby }}</p>
+         </div>
+        <hr>
+        <img v-bind:style="styleData" v-bind:src="imgUrl">
+        <div class="container" v-bind:class="{'active': isActive, 'text-red': hasError}">Class Binding First</div>
+        <div class="container" v-bind:class="myClass">Class Binding Second</div>
     </div>
 </template>
 <script>
@@ -37,9 +46,38 @@
                 selectModel : '',
                 textModel : '백견불여일타',
                 chData : '',
-                city : ''
+                city : [],
+                hobby : '운동',
+                imgUrl:'https://img.freepik.com/premium-photo/small-sea-wave-on-bright-sea_73683-876.jpg',
+                styleData : {
+                    backgroundColor : 'skyblue',
+                    width : '200px'
+                },
+                backSetting : 'background-color:skyblue; width:200px',
+                addStyle : 'height: 200px;',
+                isActive : false,
+                //hasError : !this.isActive //반대로 동작하는거X isActive 초기값의 반대일뿐
+                myClass : 'active' //값으로 클래스 명 가지고있는 거 > 클래스 자체를 제어 (ex:text-red 넣거나)
+            }
+        },
+        computed : {
+            hasError(){
+                return !this.isActive //이렇게 해야 반대로 동작
             }
         }
     }
 </script>
 
+<style scoped>
+    container {
+        width: 100%;
+        height: 200px;
+    }
+    .active{
+        background-color: yellow;
+        font-weight: bold;
+    }
+    .text-red{
+        color: red;
+    }
+</style>

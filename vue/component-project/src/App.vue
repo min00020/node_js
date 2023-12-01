@@ -1,7 +1,10 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/dataBinding">dataBinding</router-link>
+    <router-link to="/dataBinding">dataBinding</router-link> |
+    <router-link to="/listBinding">listBinding</router-link> |
+    <router-link to="/ifBinding">ifBinding</router-link> |
+    <router-link to="/onEvent">onEvent</router-link> |
   </nav>
   <router-view/>
 </template>
