@@ -5,6 +5,7 @@
     <router-link to="/listBinding">listBinding</router-link> |
     <router-link to="/ifBinding">ifBinding</router-link> |
     <router-link to="/onEvent">onEvent</router-link> |
+    <router-link to="/options">options</router-link> |
   </nav>
   <router-view/>
 </template>

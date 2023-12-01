@@ -4,6 +4,7 @@ import DataBinding from '../views/DataBinding.vue';
 import ListBinding from '../views/ListBinding.vue';
 import IFBinding from '../views/IFBinding.vue';
 import OnEvent from '../views/OnEvent.vue';
+import Options from '../views/Options.vue';
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path:'/onEvent',
     name: 'onEvent',
     component: OnEvent
+  },
+  {
+    path:'/options',
+    name: 'options',
+    component: Options
   }
 ]
 
