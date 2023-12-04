@@ -23,7 +23,7 @@ const routes = [
   {
     path:'/userUpdate',
     name:'userUpdate',
-    component:UserUpdate
+    component: UserUpdate
   }
 ]
 

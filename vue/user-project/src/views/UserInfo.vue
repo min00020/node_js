@@ -7,8 +7,8 @@
                     <td class="text-center"> {{userInfo.user_no}}</td>
                 </tr>
                 <tr>
-                        <th class="text-right table-primary">Id</th>
-                        <td class="text-center">{{userInfo.user_id}}</td>
+                    <th class="text-right table-primary">Id</th>
+                    <td class="text-center">{{userInfo.user_id}}</td>
                 </tr>
                 <tr>
                     <th class="text-right table-primary">Password</th>
@@ -29,7 +29,7 @@
             </table>
         </div>
         <div class="row">
-            <button  class="btn btn-info" @click="updateInfo(userInfo.user_no)">수정</button>
+            <button  class="btn btn-info" @click="goToUpdate(userInfo.user_no)">수정</button>
             <router-link to="/" class="btn btn-success">목록</router-link>
             <button class="btn btn-warning" @click="deleteInfo(userInfo.user_no)">삭제</button> <!--router랑 상관없음!!-->
         </div>
@@ -78,6 +78,9 @@
                     alert('정상적으로 삭제되었습니다.');
                     this.$router.push({name:'userList'});
                 }
+            },
+            goToUpdate(no){
+                this.$router.push({path : '/userUpdate', query : { userNo : no }})
             }
         }
 
