@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr :key="idx" v-for="(user,idx) in userList" @click="goToUserInfo(user.user_id)">
+                <tr :key="idx" v-for="(user,idx) in userList" @click="goToUserInfo(user.user_no)">
                     <td>{{ user.user_no }}</td>
                     <td>{{ user.user_id }}</td>
                     <td>{{ user.user_name }}</td>
@@ -51,8 +51,8 @@
                 let list = result.data;
                this.userList = list;
             },
-            goToUserInfo(id){
-                this.$router.push({ path : 'userInfo', query : {userId : id} }); 
+            goToUserInfo(no){
+                this.$router.push({ path : '/userInfo', query : {userNo : no} }); 
                 //name : router로 등록할 때 사용한 name 속성
                 //params : path 속성이 '/target/:id' 일 때 {'id' : 100} /경로가 어떤 변수값을 가질건지 지정되어있을 때
                 //push를 통해서 객체 넘어감 / name기반으로 불러와도 됨
@@ -61,13 +61,13 @@
             dateFormat(value){ //yyyy년MM월dd일
                 let date = new Date(value);
                 let year = date.getFullYear();
-                //let month = ('0' + (date.getMonth()+1)).slice(-2);
-                //let day = ('0' + (date.getDate())).slice(-2);
+                let month = ('0' + (date.getMonth()+1)).slice(-2);
+                let day = ('0' + (date.getDate())).slice(-2);
 
-                let month=date.getMonth()+1;
+                /* let month=date.getMonth()+1;
                 let day = date.getDate();
                 if(month < 10) { month = '0' + month; }
-                if(day < 10) { day = '0' + day; }
+                if(day < 10) { day = '0' + day; } */
                 
                  return `${year}년 ${month}월 ${day}일`;
 
