@@ -6,9 +6,11 @@ module.exports = defineConfig({
   devServer : {
     port: 8080,
     proxy : {
-      '^/':{
+      '^/api':{//통신 일으키는 경로
         target,
-        changeOrigin : true
+        changeOrigin : true,
+        ws : false, //무한통신 막기
+        pathRewrite : { '^/api' : '/' }
       }
     }
   }
