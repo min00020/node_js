@@ -1,6 +1,9 @@
 <template>
     <table>
         <tr>
+            {{ $dateFormat('2023/12/05','yyyy-MM-dd') }}
+        </tr>
+        <tr>
             <th>제목</th>
             <td>{{ title }}</td>
             <th>조회수</th>
@@ -22,7 +25,9 @@
     </table>
 </template>
 <script>
+//import Appmixin from '../mixin';
 export default {
+   // mixins: [Appmixin],
     //props : ['title', 'count','writer', 'regdate', 'content']
     //한 항목이라도 유효성 체크하려면 객체타입으로
     props : {
