@@ -1,5 +1,5 @@
-module.exports = {
-    empList : `SELECT e.emp_no, 
+let emp = {
+    list : `SELECT e.emp_no, 
                     e.first_name,
                     e.last_name,
                     e.gender,
@@ -15,9 +15,9 @@ module.exports = {
                             ON(e.emp_no = s.emp_no)
                 WHERE h.to_date = CAST('9999-01-01' AS DATE)
                 AND s.to_date = CAST('9999-01-01' AS DATE)                
-                ORDER BY e.emp_no
+                ORDER BY e.emp_no DESC
                 LIMIT 0,10;`,
-    empInfo : `SELECT e.emp_no, 
+    info : `SELECT e.emp_no, 
                     e.first_name,
                     e.last_name,
                     e.gender,
@@ -34,9 +34,26 @@ module.exports = {
                 WHERE h.to_date = CAST('9999-01-01' AS DATE)
                 AND s.to_date = CAST('9999-01-01' AS DATE)                
                 AND e.emp_no = ?`,
-    empInsert: ``,
-    empUpdate: `UPDATE employees 
-                SET first_name = 'kildong', last_name='Hong',gender='M', hire_date='2023-12-06' 
-                WHERE emp_no=?`,
-    empDelete: ``
+    insert: `INSERT INTO employees SET?`,
+    update: `UPDATE employees SET ? WHERE emp_no=?`
+}
+
+let dept = {
+    list : `SELECT dept_no, dept_name FROM departments ORDER BY dept_no`
+}
+
+let sal = {
+    insert :  `INSERT INTO salaries SET ?`
+}
+
+let empDept = {
+    insert : `INSERT INTO dept_emp SET emp_no = ?, dept_no = ?, from_date=?, to_date = CAST('9999-01-01' AS DATE)`,
+    update : `UPDATE dept_emp SET to_date = ? WHERE emp_no=?`
+}
+
+module.exports = {
+    emp, 
+    dept,
+    sal,
+    empDept
 }
