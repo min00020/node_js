@@ -12,6 +12,11 @@ app.listen(3000, ()=>{ //서버 실행
     console.log('3000번 서버 시작!\'~\'*, http://localhost:3000');
 })
 
+app.get('/depts', async(req,res)=>{
+    let list = await mysql.query('dept','list');
+    res.send(list);
+})
+
 //전체조회
 app.get('/emps', async(req,res)=>{
     let list = await mysql.query('emp','list');

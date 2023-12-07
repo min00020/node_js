@@ -101,6 +101,7 @@ export default {
                 alert(`수정되지 않았습니다. \n메세지를 확인해주세요. \n${result.data.message}`)
             }else{
                 alert(`정상적으로 수정되었습니다.`);
+                
             }
         }
        
