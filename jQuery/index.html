@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .blue{
+            color : skyblue;
+        }
+        .red{
+            color : orange;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Where do you want to go?</h1>
+        <h2>Travel Destinations</h2>
+        <p>Plan your next adventure.</p>
+        <ul id="destinations">
+            <li>Rome</li>
+            <li>Paris</li>
+            <li class="blue">Rio</li>
+        </ul>
+    </div>
+    <script>
+        //selector : 탐색
+        // # : id 속성
+        console.log($('#destinations'));
+        //. : class 속성
+        console.log($('.blue'));
+        //tagName
+        console.log($('h1'));
+        // [attribute] : 일반속성
+        console.log($('[name]'));
+        //관계를 기반으로 검색
+        console.log($('ul > li')); //> 이거 들어가면 자식요소 중에 li 요구
+
+        /*
+            innerHtml : html()
+            textContetn : text()
+            class : addClass(), removeClass(), hasClass(), toggleClass()
+            value : val()
+            style : css()
+            기타 : prop(), attr() > 속성 다루는 점에선 같음
+        */
+
+        let result = $('ul').html();
+        console.log(result);
+        result = $('ul').text();
+        console.log(result);
+        $('h1').text('Hello, jQuery!');
+        $('h2').css('background-color', 'green');
+        result = $('h2').css('color');
+        console.log(result);
+        $('p').prop('name', 'dumi');
+    </script>
+</body>
+</html>
